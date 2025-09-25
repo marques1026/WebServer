@@ -11,50 +11,54 @@
 <body>
     <main class="container-cadastro">
         <section class="formulario-cadastro">
-            <form>
+            <!-- O formulário agora envia os dados via POST para a rota /cadastrar_filme -->
+            <form action="/cadastrar_filme" method="POST">
                 <h1>Cadastro de filmes</h1>
 
                 <div class="linha-formulario">
                     <div class="campo-formulario">
                         <label for="filme-nome">Nome do filme</label>
-                        <input id="filme-nome" type="text" placeholder="Digite o nome do filme" />
+                        <input id="filme-nome" name="filme-nome" type="text" placeholder="Digite o nome do filme" required />
                     </div>
                     <div class="campo-formulario">
                         <label for="filme-atores">Atores</label>
-                        <input id="filme-atores" type="text" placeholder="Digite os atores" />
+                        <input id="filme-atores" name="filme-atores" type="text" placeholder="Digite os atores" required />
                     </div>
                 </div>
 
                 <div class="linha-formulario">
                     <div class="campo-formulario">
                         <label for="filme-diretor">Diretor</label>
-                        <input id="filme-diretor" type="text" placeholder="Digite o diretor" />
+                        <input id="filme-diretor" name="filme-diretor" type="text" placeholder="Digite o diretor" required />
                     </div>
                     <div class="campo-formulario">
                         <label for="filme-ano">Ano</label>
-                        <input id="filme-ano" type="number" placeholder="Digite o ano de lançamento" />
+                        <input id="filme-ano" name="filme-ano" type="number" placeholder="Digite o ano de lançamento" required />
                     </div>
                 </div>
 
                 <div class="linha-formulario">
                     <div class="campo-formulario">
                         <label for="filme-genero">Gênero</label>
-                        <input id="filme-genero" type="text" placeholder="Digite o gênero" />
+                        <input id="filme-genero" name="filme-genero" type="text" placeholder="Digite o gênero" required />
                     </div>
                     <div class="campo-formulario">
                         <label for="filme-produtora">Produtora</label>
-                        <input id="filme-produtora" type="text" placeholder="Digite a Produtora" />
+                        <input id="filme-produtora" name="filme-produtora" type="text" placeholder="Digite a Produtora" required />
                     </div>
                 </div>
 
                 <div class="linha-formulario">
                     <div class="campo-formulario">
                         <label for="filme-sinopse">Sinopse</label>
-                        <textarea id="filme-sinopse" placeholder="Digite a sinopse"></textarea>
+                        <textarea id="filme-sinopse" name="filme-sinopse" placeholder="Digite a sinopse" required></textarea>
                     </div>
                 </div>
 
                 <button type="submit" class="botao-cadastrar">Cadastrar</button>
+                 <div style="text-align: center; margin-top: 1rem;">
+                    <a href="./listar_filmes.html" style="color: #00c6ff; text-decoration: none;">Ver Filmes Cadastrados</a>
+                </div>
             </form>
         </section>
     </main>

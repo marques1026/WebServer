@@ -1,31 +1,9 @@
+
 /* reset basiquinho */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif;
-  color: #fff;
-  background: linear-gradient(45deg, #0d012c, #2a004f, #51007a, #00475e);
-  background-size: 400% 400%;
-  animation: moverGradiente 15s ease infinite;
-  min-height: 100vh;
-}
-
-/* importação do gradiente */
-@keyframes moverGradiente {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
 }
 
 /*container principal */
@@ -121,4 +99,198 @@ body {
 .botao-cadastrar:hover {
   transform: scale(1.02);
   box-shadow: 0 0 20px 0 #e000c688;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  color: #fff;
+  background: linear-gradient(45deg, #0d012c, #2a004f, #51007a, #00475e);
+  background-size: 400% 400%;
+  animation: moverGradiente 15s ease infinite;
+  min-height: 100vh;
+}
+
+@keyframes moverGradiente {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* página de cadastro */
+.container-cadastro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.formulario-cadastro {
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 2.5rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(1, 38, 92, 0.37);
+  width: 100%;
+  max-width: 800px;
+}
+
+.formulario-cadastro h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.linha-formulario {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.campo-formulario {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.campo-formulario label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #c7c7c7;
+}
+
+.campo-formulario input,
+.campo-formulario textarea {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid #555;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.campo-formulario input:focus,
+.campo-formulario textarea:focus {
+  outline: none;
+  border-color: #00c6ff;
+  box-shadow: 0 0 10px 0 #00c6ff44;
+}
+
+.campo-formulario textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.botao-cadastrar {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(90deg, #6a00ff, #e000c6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.botao-cadastrar:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px 0 #e000c688;
+}
+
+/* Estilo da Página de listar filme */
+.container-lista {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header-lista {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header-lista h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+}
+
+.botao-adicionar {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  background: linear-gradient(90deg, #6a00ff, #e000c6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.botao-adicionar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px 0 #e000c688;
+}
+
+.lista-filmes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.card-filme {
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 1.5rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(1, 38, 92, 0.37);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-filme:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px 0 rgba(1, 38, 92, 0.5);
+}
+
+.card-filme h2 {
+  font-size: 1.5rem;
+  color: #00c6ff;
+  margin-bottom: 1rem;
+}
+
+.card-filme p {
+  color: #c7c7c7;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.card-filme p strong {
+    color: #fff;
+}
+
+.mensagem-vazia {
+    color: #c7c7c7;
+    font-size: 1.2rem;
+    text-align: center;
+    grid-column: 1 / -1;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
 }
