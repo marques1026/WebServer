@@ -2,7 +2,7 @@ import os
 from http.server import SimpleHTTPRequestHandler, HTTPServer
 from urllib.parse import parse_qs
 
-# Lista para armazenar os filmes na memoria
+# lista para armazenar os filmes na memoria
 filmes_cadastrados = []
 
 class MyHandle(SimpleHTTPRequestHandler):
@@ -21,7 +21,7 @@ class MyHandle(SimpleHTTPRequestHandler):
         return super().list_directory(path)
     
     def do_GET(self):
-        # Servir arquivos CSS
+
         if self.path.endswith(".css"):
             try:
                 with open(os.path.join(os.getcwd(), self.path.lstrip('/')), 'r', encoding="utf-8") as css_file:
@@ -54,13 +54,15 @@ class MyHandle(SimpleHTTPRequestHandler):
                 self.end_headers()
                 self.wfile.write(content.encode('utf-8'))
             except FileNotFoundError:
-                self.send_error(404, "Essa página de cadastro não existe, foi mal!")
+                self.send_error(404, "Essa página de cadastro não existe!")
 
         elif self.path == "/listar_filmes":
             try:
+                # abre o arquivo html
                 with open(os.path.join(os.getcwd(), "listar_filmes.html"), 'r', encoding="utf-8") as f:
                     content = f.read()
                 
+                # 2. Gera o HTML dos filmes
                 filmes_html = ""
                 if not filmes_cadastrados:
                     filmes_html = "<p class='mensagem-vazia'>Nenhum filme cadastrado ainda.</p>"
@@ -78,6 +80,17 @@ class MyHandle(SimpleHTTPRequestHandler):
                         </div>
                         """
                 
+                content = content.replace('{{LISTA_FILMES}}', filmes_html)
+                
+                # envia a resposta pro navegador
+                self.send_response(200)
+                self.send_header("Content-type", "text/html")
+                self.end_headers()
+                self.wfile.write(content.encode('utf-8'))
+
+            except FileNotFoundError:
+                self.send_error(404, "Não achei a lista de filmes!")
+                
                 content = content.replace('', filmes_html)
                 
                 self.send_response(200)
@@ -91,7 +104,7 @@ class MyHandle(SimpleHTTPRequestHandler):
             super().do_GET()
 
     def do_POST(self):
-        # Verifica a rota da requisição POST
+        # verifica a rota da requisição POST
         if self.path == '/cadastrar_filme':
             content_length = int(self.headers['Content-Length'])
             
@@ -104,12 +117,12 @@ class MyHandle(SimpleHTTPRequestHandler):
             
             filmes_cadastrados.append(novo_filme)
             
-            # Redireciona de volta para a página de listagem
+            # redireciona de volta pra página de listagem
             self.send_response(302)
             self.send_header('Location', '/listar_filmes')
             self.end_headers()
         else:
-            # Se a rota não for a esperada, retorna um erro
+            # se a rota não for a esperada, retorna um erro
             self.send_error(404, "Rota POST não encontrada.")
 
 def main():
