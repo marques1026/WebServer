@@ -210,7 +210,6 @@ body {
   box-shadow: 0 0 20px 0 #e000c688;
 }
 
-/* Estilo da Página de listar filme */
 .container-lista {
   max-width: 1200px;
   margin: 0 auto;
@@ -293,4 +292,41 @@ body {
     padding: 2rem;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 15px;
+}
+
+
+
+
+
+.card-botoes {
+    display: flex;
+    justify-content: flex-end; /* Alinha os botões à direita */
+    gap: 10px; 
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.botao-card {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.botao-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.botao-editar {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+}
+
+.botao-remover {
+    background: linear-gradient(to right, #cb1111, #fc2525);
 }
